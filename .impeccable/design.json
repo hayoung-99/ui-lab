@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-07T00:00:00Z",
+  "title": "Design System: UI Practice",
+  "extensions": {
+    "colorMeta": {
+      "studio-floor": { "role": "neutral", "displayName": "Studio Floor", "canonical": "#d3d3d5", "tonalRamp": ["#151517", "#2a2a2d", "#404043", "#57575a", "#6f6f72", "#8a8a8d", "#a6a6a9", "#d3d3d5"] },
+      "stage-well": { "role": "neutral", "displayName": "Stage Well", "canonical": "#dcdcde", "tonalRamp": ["#1d1d21", "#323236", "#48484c", "#5f5f63", "#77777b", "#919195", "#adadb0", "#dcdcde"] },
+      "glass-card": { "role": "neutral", "displayName": "Glass Card", "canonical": "rgba(255,255,255,0.55)", "tonalRamp": ["rgba(255,255,255,0.04)", "rgba(255,255,255,0.1)", "rgba(255,255,255,0.2)", "rgba(255,255,255,0.3)", "rgba(255,255,255,0.4)", "rgba(255,255,255,0.55)", "rgba(255,255,255,0.7)", "rgba(255,255,255,0.9)"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#171717", "tonalRamp": ["#171717", "#262626", "#404040", "#525252", "#737373", "#a3a3a3", "#d4d4d4", "#f5f5f5"] },
+      "focus-indigo": { "role": "primary", "displayName": "Focus Indigo", "canonical": "#6366f1", "tonalRamp": ["#1e1b4b", "#312e81", "#3730a3", "#4338ca", "#4f46e5", "#6366f1", "#a5b4fc", "#e0e7ff"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "컴포넌트 이름. 화면에 하나." },
+      "title": { "displayName": "Title", "purpose": "카드 제목." },
+      "body": { "displayName": "Body", "purpose": "스펙 값, 슬라이더 라벨, 카드 설명." },
+      "caption": { "displayName": "Caption", "purpose": "보조 설명." },
+      "label": { "displayName": "Label", "purpose": "대문자 트래킹 섹션 헤더." },
+      "mono": { "displayName": "Mono", "purpose": "값·파일명·prop 이름." }
+    },
+    "shadows": [
+      { "name": "glass-lift", "value": "0 1px 0 rgba(255,255,255,0.7), 0 20px 40px -24px rgba(0,0,0,0.35)", "purpose": "카드. 유리 윗면 하이라이트와 바닥 확산 그림자." },
+      { "name": "glass-lift-dark", "value": "0 20px 40px -24px rgba(0,0,0,0.8)", "purpose": "다크 모드 카드." },
+      { "name": "stage-well", "value": "inset 0 2px 10px rgba(0,0,0,0.08), 0 1px 0 rgba(255,255,255,0.6)", "purpose": "무대. 파인 접시." },
+      { "name": "stage-well-dark", "value": "inset 0 2px 10px rgba(0,0,0,0.5)", "purpose": "다크 모드 무대." }
+    ],
+    "motion": [
+      { "name": "colors", "value": "color 0.3s ease, background 0.3s ease", "purpose": "테마 전환 시 면·글자 색 크로스페이드." },
+      { "name": "chevron", "value": "transform 0.2s", "purpose": "아코디언 chevron 회전." },
+      { "name": "press", "value": "transform 0.15s ease", "purpose": "버튼 눌림 scale(0.97)." }
+    ],
+    "breakpoints": [
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Glass Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "반투명 유리 카드. 라벨 → 제목 → 설명 헤더.",
+      "html": "<div class=\"ds-card\"><p class=\"ds-label\">Tech Spec</p><h2 class=\"ds-title\">LiquidMetalButton</h2><p class=\"ds-caption\">링은 레퍼런스 영상을 텍스처로 구워 WebGL 로 재생합니다.</p></div>",
+      "css": ".ds-card { width: 320px; padding: 24px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.6); background: rgba(255,255,255,0.55); box-shadow: 0 1px 0 rgba(255,255,255,0.7), 0 20px 40px -24px rgba(0,0,0,0.35); backdrop-filter: blur(8px); font-family: ui-sans-serif, system-ui, sans-serif; color: #171717; } .ds-label { margin: 0; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #737373; } .ds-title { margin: 4px 0 0; font-size: 18px; font-weight: 600; color: #171717; } .ds-caption { margin: 4px 0 0; font-size: 13px; line-height: 1.375; color: #525252; }"
+    },
+    {
+      "name": "Ghost Pill Button",
+      "kind": "button",
+      "refersTo": "button-ghost-pill",
+      "description": "테마 토글과 초기화에 쓰는 투명 알약 버튼.",
+      "html": "<button class=\"ds-btn-ghost\" type=\"button\">다크 모드로</button>",
+      "css": ".ds-btn-ghost { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12px; color: #525252; background: transparent; border: 1px solid rgba(163,163,163,0.5); border-radius: 999px; padding: 4px 12px; cursor: pointer; transition: background 0.15s ease; } .ds-btn-ghost:hover { background: rgba(255,255,255,0.4); } .ds-btn-ghost:focus-visible { outline: 2px solid #6366f1; outline-offset: 3px; } .ds-btn-ghost:disabled { opacity: 0.4; cursor: default; }"
+    },
+    {
+      "name": "Range Slider",
+      "kind": "input",
+      "refersTo": "body",
+      "description": "라벨·모노 현재값·눈금이 붙은 슬라이더.",
+      "html": "<label class=\"ds-slider\"><div class=\"ds-slider-head\"><span>링 두께</span><span class=\"ds-slider-value ds-changed\">9px</span></div><input type=\"range\" min=\"2\" max=\"14\" value=\"9\"><div class=\"ds-slider-ticks\"><span>2px</span><span>14px</span></div></label>",
+      "css": ".ds-slider { display: block; width: 300px; font-family: ui-sans-serif, system-ui, sans-serif; } .ds-slider-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; font-size: 13px; color: #404040; } .ds-slider-value { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; font-variant-numeric: tabular-nums; color: #a3a3a3; } .ds-slider-value.ds-changed { color: #171717; } .ds-slider input { width: 100%; height: 6px; appearance: none; border-radius: 999px; background: rgba(0,0,0,0.1); accent-color: #262626; cursor: pointer; } .ds-slider input:focus-visible { outline: 2px solid #6366f1; outline-offset: 3px; } .ds-slider-ticks { display: flex; justify-content: space-between; margin-top: 2px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; color: #a3a3a3; }"
+    },
+    {
+      "name": "Code Chip",
+      "kind": "chip",
+      "refersTo": "code-chip",
+      "description": "prop 이름·파일명을 감싸는 모노 칩.",
+      "html": "<code class=\"ds-code\">rim-reference.png</code>",
+      "css": ".ds-code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: #404040; background: rgba(0,0,0,0.06); border-radius: 4px; padding: 1px 4px; }"
+    },
+    {
+      "name": "Spec Accordion",
+      "kind": "custom",
+      "refersTo": "card",
+      "description": "네이티브 details 로 만든 스펙 섹션과 2열 행.",
+      "html": "<details class=\"ds-spec\" open><summary class=\"ds-spec-head\">Rendering <svg width=\"14\" height=\"14\" viewBox=\"0 0 16 16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 6l4 4 4-4\"/></svg></summary><dl class=\"ds-spec-body\"><div class=\"ds-spec-row\"><dt>엔진</dt><dd>순수 WebGL2 — 의존성 없음</dd></div><div class=\"ds-spec-row\"><dt>캔버스</dt><dd>투명 배경, MSAA, DPR ≤ 2</dd></div></dl></details>",
+      "css": ".ds-spec { width: 320px; font-family: ui-sans-serif, system-ui, sans-serif; border-top: 1px solid rgba(0,0,0,0.08); } .ds-spec-head { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; list-style: none; cursor: pointer; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #525252; user-select: none; } .ds-spec-head::-webkit-details-marker { display: none; } .ds-spec-head:hover { color: #171717; } .ds-spec-head svg { color: #a3a3a3; transition: transform 0.2s; } .ds-spec[open] .ds-spec-head svg { transform: rotate(180deg); } .ds-spec-body { margin: 0; padding-bottom: 16px; display: grid; gap: 6px; } .ds-spec-row { display: grid; grid-template-columns: 92px 1fr; gap: 12px; font-size: 13px; line-height: 1.375; } .ds-spec-row dt { color: #737373; } .ds-spec-row dd { margin: 0; color: #262626; }"
+    },
+    {
+      "name": "Stage",
+      "kind": "custom",
+      "refersTo": "stage",
+      "description": "컴포넌트가 놓이는 64px 둥근 접시. 안에는 CSS 폴백 링 버튼.",
+      "html": "<div class=\"ds-stage\"><button class=\"ds-lmb\" type=\"button\"><span>Elements</span></button></div>",
+      "css": ".ds-stage { display: inline-block; padding: 48px; border-radius: 64px; border: 1px solid rgba(255,255,255,0.5); background: #dcdcde; box-shadow: inset 0 2px 10px rgba(0,0,0,0.08), 0 1px 0 rgba(255,255,255,0.6); } .ds-lmb { position: relative; display: inline-flex; align-items: center; justify-content: center; padding: 24px 96px; border: 7px solid transparent; border-radius: 999px; cursor: pointer; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 16px; font-weight: 500; color: #171717; background: linear-gradient(180deg, #e7e7ea, #dedee1) padding-box, conic-gradient(from 0deg, #e9eaee 0deg, #ffffff 60deg, #c9ccd4 120deg, #9fa3ad 180deg, #5c606c 228deg, #fafafb 300deg, #e9eaee 360deg) border-box; box-shadow: inset 0 2px 6px rgba(20,20,30,0.06), 0 1px 2px rgba(20,20,30,0.1), 0 14px 30px -12px rgba(20,20,30,0.35); transition: transform 0.15s ease, box-shadow 0.2s ease; } .ds-lmb:hover { box-shadow: inset 0 2px 6px rgba(20,20,30,0.06), 0 1px 2px rgba(20,20,30,0.14), 0 18px 34px -12px rgba(20,20,30,0.4); } .ds-lmb:active { transform: scale(0.97); } .ds-lmb:focus-visible { outline: 2px solid #6366f1; outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "제품 촬영 스튜디오",
+    "overview": "무광 회색 배경지(스튜디오 플로어) 위에 오브젝트 하나를 올려 두고 조명을 맞추는 장면입니다. 화면의 주인공은 항상 컴포넌트이고, 나머지 요소(조절 패널, 스펙 카드)는 촬영 스태프처럼 옆에서 조용히 일합니다. 배경은 색을 갖지 않아 금속 링의 무지개 프린지가 유일한 채도가 됩니다. 카드는 반투명 유리이고, 컴포넌트가 놓이는 무대는 배경보다 살짝 밝은 움푹한 접시입니다.\n\n밀도는 편안한 쪽입니다. 카드 안 행간은 촘촘하지만 카드끼리는 넉넉히 떨어져 있고, 라벨은 작은 대문자 트래킹으로 소리를 낮춥니다. 라이트·다크 모드는 같은 스튜디오의 낮과 밤이며, 양쪽 모두 동일한 구조를 유지한 채 밝기만 뒤집습니다.",
+    "keyCharacteristics": [
+      "무채색 배경지 위 단 하나의 채도(버튼 링의 무지개)",
+      "반투명 유리 카드와 큰 둥근 모서리(24px 카드, 64px 무대, 999px 알약)",
+      "작은 대문자 라벨(11px, 0.1em 트래킹)이 섹션을 여는 목소리",
+      "값과 파일명은 모노스페이스, 나머지는 시스템 산세리프",
+      "라이트와 다크가 대칭인 구조"
+    ],
+    "rules": [
+      { "name": "The Grey Backdrop Rule", "body": "배경·카드·텍스트는 전부 무채색입니다. 채도는 컴포넌트가 스스로 가져오는 것이지 무대가 주는 것이 아닙니다.", "section": "colors" },
+      { "name": "The One Indigo Rule", "body": "#6366f1 는 포커스 링 전용입니다. 강조·링크·활성 상태에 빌려 쓰지 않습니다.", "section": "colors" },
+      { "name": "The Mono Value Rule", "body": "숫자·파일명·prop 이름처럼 복사해 쓸 수 있는 것은 전부 모노스페이스입니다. 설명 문장은 산세리프로 남깁니다.", "section": "typography" },
+      { "name": "The Changed-Value Rule", "body": "기본값에서 벗어난 슬라이더 값만 진한 잉크로, 기본값 그대로인 것은 옅은 회색으로 둡니다. 무엇을 건드렸는지 색이 말합니다.", "section": "typography" },
+      { "name": "The Lift-and-Well Rule", "body": "정보는 떠 있고(카드) 오브젝트는 놓여 있습니다(무대). 카드에 안쪽 그림자를, 무대에 확산 그림자를 주지 않습니다.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do 배경·카드·텍스트를 무채색으로 유지하고 채도는 컴포넌트에 맡깁니다.",
+      "Do 값·파일명·prop 이름은 모노스페이스로, 문장은 산세리프로 씁니다.",
+      "Do 새 UI 를 라이트와 다크 양쪽에서 확인하고, 다크는 <html class=\"dark\"> 변형(dark:)으로 씁니다.",
+      "Do 섹션은 11px 대문자 트래킹 라벨로 엽니다.",
+      "Do 카드는 Glass lift, 무대는 Stage well 그림자를 씁니다."
+    ],
+    "donts": [
+      "Don't src/components/LiquidMetalButton/ 의 스타일이나 동작을 화면 디자인 작업에서 바꾸지 않습니다.",
+      "Don't #6366f1 를 포커스 링 밖에서 쓰지 않습니다.",
+      "Don't 웹폰트나 새 패키지를 들이지 않습니다.",
+      "Don't 한국어 카피를 바꾸거나 사실이 아닌 문구를 덧붙이지 않습니다.",
+      "Don't 카드에 불투명 흰색·검정 배경을 주지 않습니다. 유리는 항상 반투명입니다."
+    ]
+  }
+}

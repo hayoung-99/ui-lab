@@ -1,0 +1,19 @@
+@import 'tailwindcss';
+
+/* dark: 변형을 시스템 설정이 아니라 <html class="dark"> 로 켭니다 (셸의 토글용) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light dark;
+}
+
+/* 스튜디오 배경지. JS 가 뜨기 전(정적 HTML)에도 같은 색이 깔리게 body 에 둡니다 */
+body {
+  margin: 0;
+  background: #d3d3d5;
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #151517;
+  }
+}

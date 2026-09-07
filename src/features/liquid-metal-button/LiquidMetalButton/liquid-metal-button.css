@@ -1,0 +1,106 @@
+/*
+ * 3D 판. 링은 MetalRim(three.js)이 그리고, 여기서는 버튼 면·글자·캔버스 배치만 다룹니다.
+ * --ring 은 TSX 가 ring prop 으로 인라인 덮어씁니다. 여기 값은 그 전의 기본값입니다.
+ * 캔버스 아래에는 정지한 크롬 링을 CSS 로 깔아 둡니다 — WebGL 이 없을 때의 대체입니다.
+ *
+ * 테마는 버튼의 data-theme 로 정해집니다 (TSX 가 prop 또는 시스템 설정에서 결정).
+ * 다크에서는 면·글자·그림자·대체 링을 뒤집습니다. 3D 링의 반전은 셰이더가 합니다.
+ */
+.liquid-metal-button {
+  --ring: 7px;
+  --face-top: #e7e7ea;
+  --face-bottom: #dedee1;
+  --label: #171717;
+  --shadow: 20, 20, 30;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 96px;
+  border: var(--ring) solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  color: var(--label);
+  background:
+    linear-gradient(180deg, var(--face-top), var(--face-bottom)) padding-box,
+    conic-gradient(
+        from 0deg,
+        #e9eaee 0deg,
+        #ffffff 60deg,
+        #c9ccd4 120deg,
+        #9fa3ad 180deg,
+        #5c606c 228deg,
+        #fafafb 300deg,
+        #e9eaee 360deg
+      )
+      border-box;
+  box-shadow:
+    inset 0 2px 6px rgba(var(--shadow), 0.06),
+    0 1px 2px rgba(var(--shadow), 0.1),
+    0 14px 30px -12px rgba(var(--shadow), 0.35);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.liquid-metal-button[data-theme='dark'] {
+  --face-top: #2b2c32;
+  --face-bottom: #1f2025;
+  --label: #f2f2f4;
+  --shadow: 0, 0, 0;
+
+  background:
+    linear-gradient(180deg, var(--face-top), var(--face-bottom)) padding-box,
+    conic-gradient(
+        from 0deg,
+        #2a2b31 0deg,
+        #0c0c10 60deg,
+        #4a4d56 120deg,
+        #6d717b 180deg,
+        #b4b8c2 228deg,
+        #141418 300deg,
+        #2a2b31 360deg
+      )
+      border-box;
+  box-shadow:
+    inset 0 2px 6px rgba(255, 255, 255, 0.04),
+    0 1px 2px rgba(var(--shadow), 0.4),
+    0 14px 30px -12px rgba(var(--shadow), 0.7);
+}
+
+.liquid-metal-button__rim {
+  position: absolute;
+  /* inset 은 TSX 가 -(MARGIN + RING) 으로 넣습니다 */
+  pointer-events: none;
+}
+
+.liquid-metal-button__label {
+  position: relative;
+  z-index: 1;
+}
+
+.liquid-metal-button:hover {
+  box-shadow:
+    inset 0 2px 6px rgba(var(--shadow), 0.06),
+    0 1px 2px rgba(var(--shadow), 0.14),
+    0 18px 34px -12px rgba(var(--shadow), 0.4);
+}
+
+.liquid-metal-button[data-theme='dark']:hover {
+  box-shadow:
+    inset 0 2px 6px rgba(255, 255, 255, 0.04),
+    0 1px 2px rgba(var(--shadow), 0.5),
+    0 18px 34px -12px rgba(var(--shadow), 0.8);
+}
+
+.liquid-metal-button:active {
+  transform: scale(0.97);
+}
+
+.liquid-metal-button:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 3px;
+}
