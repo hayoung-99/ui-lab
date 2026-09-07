@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font-size",
+        "value": "10px",
+        "files": [
+          "src/features/liquid-metal-button/Page.tsx"
+        ],
+        "createdAt": "2026-09-07T10:37:18.460Z",
+        "reason": "feature DESIGN.md의 Mono 항목(12px / 눈금 10px)이 슬라이더 min/max 라벨을 10px로 명시함 — 오탐"
+      }
+    ]
+  }
+}

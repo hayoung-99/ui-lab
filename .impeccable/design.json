@@ -4,11 +4,45 @@
   "title": "Design System: UI Practice",
   "extensions": {
     "colorMeta": {
-      "studio-floor": { "role": "neutral", "displayName": "Studio Floor", "canonical": "#d3d3d5", "tonalRamp": ["#151517", "#2a2a2d", "#404043", "#57575a", "#6f6f72", "#8a8a8d", "#a6a6a9", "#d3d3d5"] },
-      "stage-well": { "role": "neutral", "displayName": "Stage Well", "canonical": "#dcdcde", "tonalRamp": ["#1d1d21", "#323236", "#48484c", "#5f5f63", "#77777b", "#919195", "#adadb0", "#dcdcde"] },
-      "glass-card": { "role": "neutral", "displayName": "Glass Card", "canonical": "rgba(255,255,255,0.55)", "tonalRamp": ["rgba(255,255,255,0.04)", "rgba(255,255,255,0.1)", "rgba(255,255,255,0.2)", "rgba(255,255,255,0.3)", "rgba(255,255,255,0.4)", "rgba(255,255,255,0.55)", "rgba(255,255,255,0.7)", "rgba(255,255,255,0.9)"] },
-      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#171717", "tonalRamp": ["#171717", "#262626", "#404040", "#525252", "#737373", "#a3a3a3", "#d4d4d4", "#f5f5f5"] },
-      "focus-indigo": { "role": "primary", "displayName": "Focus Indigo", "canonical": "#6366f1", "tonalRamp": ["#1e1b4b", "#312e81", "#3730a3", "#4338ca", "#4f46e5", "#6366f1", "#a5b4fc", "#e0e7ff"] }
+      "studio-floor": {
+        "role": "neutral",
+        "displayName": "Studio Floor",
+        "canonical": "#d3d3d5",
+        "tonalRamp": ["#151517", "#2a2a2d", "#404043", "#57575a", "#6f6f72", "#8a8a8d", "#a6a6a9", "#d3d3d5"]
+      },
+      "stage-well": {
+        "role": "neutral",
+        "displayName": "Stage Well",
+        "canonical": "#dcdcde",
+        "tonalRamp": ["#1d1d21", "#323236", "#48484c", "#5f5f63", "#77777b", "#919195", "#adadb0", "#dcdcde"]
+      },
+      "glass-card": {
+        "role": "neutral",
+        "displayName": "Glass Card",
+        "canonical": "rgba(255,255,255,0.55)",
+        "tonalRamp": [
+          "rgba(255,255,255,0.04)",
+          "rgba(255,255,255,0.1)",
+          "rgba(255,255,255,0.2)",
+          "rgba(255,255,255,0.3)",
+          "rgba(255,255,255,0.4)",
+          "rgba(255,255,255,0.55)",
+          "rgba(255,255,255,0.7)",
+          "rgba(255,255,255,0.9)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#171717",
+        "tonalRamp": ["#171717", "#262626", "#404040", "#525252", "#737373", "#a3a3a3", "#d4d4d4", "#f5f5f5"]
+      },
+      "focus-indigo": {
+        "role": "primary",
+        "displayName": "Focus Indigo",
+        "canonical": "#6366f1",
+        "tonalRamp": ["#1e1b4b", "#312e81", "#3730a3", "#4338ca", "#4f46e5", "#6366f1", "#a5b4fc", "#e0e7ff"]
+      }
     },
     "typographyMeta": {
       "display": { "displayName": "Display", "purpose": "컴포넌트 이름. 화면에 하나." },
@@ -19,19 +53,29 @@
       "mono": { "displayName": "Mono", "purpose": "값·파일명·prop 이름." }
     },
     "shadows": [
-      { "name": "glass-lift", "value": "0 1px 0 rgba(255,255,255,0.7), 0 20px 40px -24px rgba(0,0,0,0.35)", "purpose": "카드. 유리 윗면 하이라이트와 바닥 확산 그림자." },
+      {
+        "name": "glass-lift",
+        "value": "0 1px 0 rgba(255,255,255,0.7), 0 20px 40px -24px rgba(0,0,0,0.35)",
+        "purpose": "카드. 유리 윗면 하이라이트와 바닥 확산 그림자."
+      },
       { "name": "glass-lift-dark", "value": "0 20px 40px -24px rgba(0,0,0,0.8)", "purpose": "다크 모드 카드." },
-      { "name": "stage-well", "value": "inset 0 2px 10px rgba(0,0,0,0.08), 0 1px 0 rgba(255,255,255,0.6)", "purpose": "무대. 파인 접시." },
+      {
+        "name": "stage-well",
+        "value": "inset 0 2px 10px rgba(0,0,0,0.08), 0 1px 0 rgba(255,255,255,0.6)",
+        "purpose": "무대. 파인 접시."
+      },
       { "name": "stage-well-dark", "value": "inset 0 2px 10px rgba(0,0,0,0.5)", "purpose": "다크 모드 무대." }
     ],
     "motion": [
-      { "name": "colors", "value": "color 0.3s ease, background 0.3s ease", "purpose": "테마 전환 시 면·글자 색 크로스페이드." },
+      {
+        "name": "colors",
+        "value": "color 0.3s ease, background 0.3s ease",
+        "purpose": "테마 전환 시 면·글자 색 크로스페이드."
+      },
       { "name": "chevron", "value": "transform 0.2s", "purpose": "아코디언 chevron 회전." },
       { "name": "press", "value": "transform 0.15s ease", "purpose": "버튼 눌림 scale(0.97)." }
     ],
-    "breakpoints": [
-      { "name": "lg", "value": "1024px" }
-    ]
+    "breakpoints": [{ "name": "lg", "value": "1024px" }]
   },
   "components": [
     {
@@ -39,7 +83,7 @@
       "kind": "card",
       "refersTo": "card",
       "description": "반투명 유리 카드. 라벨 → 제목 → 설명 헤더.",
-      "html": "<div class=\"ds-card\"><p class=\"ds-label\">Tech Spec</p><h2 class=\"ds-title\">LiquidMetalButton</h2><p class=\"ds-caption\">링은 레퍼런스 영상을 텍스처로 구워 WebGL 로 재생합니다.</p></div>",
+      "html": "<div class=\"ds-card\"><p class=\"ds-label\">Spec</p><h2 class=\"ds-title\">LiquidMetalButton</h2><p class=\"ds-caption\">링은 레퍼런스 영상을 텍스처로 구워 WebGL 로 재생합니다.</p></div>",
       "css": ".ds-card { width: 320px; padding: 24px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.6); background: rgba(255,255,255,0.55); box-shadow: 0 1px 0 rgba(255,255,255,0.7), 0 20px 40px -24px rgba(0,0,0,0.35); backdrop-filter: blur(8px); font-family: ui-sans-serif, system-ui, sans-serif; color: #171717; } .ds-label { margin: 0; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #737373; } .ds-title { margin: 4px 0 0; font-size: 18px; font-weight: 600; color: #171717; } .ds-caption { margin: 4px 0 0; font-size: 13px; line-height: 1.375; color: #525252; }"
     },
     {
@@ -94,11 +138,31 @@
       "라이트와 다크가 대칭인 구조"
     ],
     "rules": [
-      { "name": "The Grey Backdrop Rule", "body": "배경·카드·텍스트는 전부 무채색입니다. 채도는 컴포넌트가 스스로 가져오는 것이지 무대가 주는 것이 아닙니다.", "section": "colors" },
-      { "name": "The One Indigo Rule", "body": "#6366f1 는 포커스 링 전용입니다. 강조·링크·활성 상태에 빌려 쓰지 않습니다.", "section": "colors" },
-      { "name": "The Mono Value Rule", "body": "숫자·파일명·prop 이름처럼 복사해 쓸 수 있는 것은 전부 모노스페이스입니다. 설명 문장은 산세리프로 남깁니다.", "section": "typography" },
-      { "name": "The Changed-Value Rule", "body": "기본값에서 벗어난 슬라이더 값만 진한 잉크로, 기본값 그대로인 것은 옅은 회색으로 둡니다. 무엇을 건드렸는지 색이 말합니다.", "section": "typography" },
-      { "name": "The Lift-and-Well Rule", "body": "정보는 떠 있고(카드) 오브젝트는 놓여 있습니다(무대). 카드에 안쪽 그림자를, 무대에 확산 그림자를 주지 않습니다.", "section": "elevation" }
+      {
+        "name": "The Grey Backdrop Rule",
+        "body": "배경·카드·텍스트는 전부 무채색입니다. 채도는 컴포넌트가 스스로 가져오는 것이지 무대가 주는 것이 아닙니다.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Indigo Rule",
+        "body": "#6366f1 는 포커스 링 전용입니다. 강조·링크·활성 상태에 빌려 쓰지 않습니다.",
+        "section": "colors"
+      },
+      {
+        "name": "The Mono Value Rule",
+        "body": "숫자·파일명·prop 이름처럼 복사해 쓸 수 있는 것은 전부 모노스페이스입니다. 설명 문장은 산세리프로 남깁니다.",
+        "section": "typography"
+      },
+      {
+        "name": "The Changed-Value Rule",
+        "body": "기본값에서 벗어난 슬라이더 값만 진한 잉크로, 기본값 그대로인 것은 옅은 회색으로 둡니다. 무엇을 건드렸는지 색이 말합니다.",
+        "section": "typography"
+      },
+      {
+        "name": "The Lift-and-Well Rule",
+        "body": "정보는 떠 있고(카드) 오브젝트는 놓여 있습니다(무대). 카드에 안쪽 그림자를, 무대에 확산 그림자를 주지 않습니다.",
+        "section": "elevation"
+      }
     ],
     "dos": [
       "Do 배경·카드·텍스트를 무채색으로 유지하고 채도는 컴포넌트에 맡깁니다.",

@@ -1,4 +1,4 @@
-import type { FeatureMeta } from '../types'
+import type { FeatureMeta } from '../types';
 
 export const meta: FeatureMeta = {
   title: 'Liquid Metal Button',
@@ -9,4 +9,4 @@ export const meta: FeatureMeta = {
   programmingLanguage: ['TypeScript', 'GLSL'],
   createdAt: '2026-09-04',
   updatedAt: '2026-09-07',
-}
+};
